@@ -1,0 +1,18 @@
+.price-wrapper{
+        @apply border-[1px] border-primary rounded-[0.75rem] w-fit bg-white pl-[5.4375rem] pt-[1.5rem] pr-[6.125rem] pb-[2.8125rem];
+    .title{
+        @apply text-[1.5rem];
+    }
+    .price{
+        @apply text-[2.5rem] leading-10 font-extrabold mt-[2.125rem];
+    }
+    .desc{
+        @apply text-[1.25rem] mt-2;
+    }
+    ul{
+        @apply flex flex-col gap-[1.5rem] mt-4;
+        li{
+            @apply flex gap-2 ;
+        }
+    }
+}

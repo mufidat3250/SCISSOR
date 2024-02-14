@@ -1,0 +1,7 @@
+.nav-bar{
+    @apply flex justify-between;
+
+    .btn-wrapper{
+        @apply flex;
+    }
+}

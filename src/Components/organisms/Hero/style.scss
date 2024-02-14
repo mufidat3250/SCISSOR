@@ -1,0 +1,16 @@
+.hero{
+    @apply flex flex-col  relative h-screen;
+    header{
+        @apply flex justify-center items-center flex-col font-semibold mt-[1.625rem] leading-[4.5rem];
+        p{
+             @apply text-[3rem] text-center;
+         }
+         .advance{
+            @apply flex gap-[0.9rem];
+         }
+    }
+
+    .seamless{
+        @apply absolute bottom-0 w-full;
+    }
+}
