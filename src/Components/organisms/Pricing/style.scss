@@ -1,4 +1,15 @@
 .pricing{
+    .title-wrapper{
+        @apply flex justify-center mx-auto max-w-[37rem] gap-4 mb-[10.9375rem];
+
+        h1{
+            @apply  text-[2.5rem] leading-[1.85rem] mb-4 font-bold;
+        }
+        p{
+            @apply text-base text-center;
+        }
+
+    }
     .pricing-cards{
         @apply flex justify-center;
     }

@@ -1,0 +1,10 @@
+.footer-wrapper{
+    @apply relative pt-[5.9375rem] pb-14; 
+
+    .footer{
+        @apply flex justify-between flex-col;
+    }
+    .footerLink{
+        @apply  grid grid-cols-4 gap-6;
+    }
+}

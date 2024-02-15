@@ -1,0 +1,49 @@
+.posibility{
+    @apply  flex justify-between items-center;
+
+    .header{
+        @apply max-w-[21.0625rem] text-[2.5rem] py-[3.875rem];
+    }
+    .users{
+        @apply gap-[4.5rem] flex;
+
+        .user{
+            @apply text-[#141414];
+            h1{
+                @apply text-[2rem];
+            }
+            p{
+                @apply text-base;
+            }
+        }
+    }
+}
+.scissors{
+    @apply flex justify-between py-32; 
+
+    .why{
+        @apply flex gap-4; 
+
+        .qoutation{
+            @apply h-8;
+        }
+
+        h1{
+            @apply text-[2.5rem] leading-10 mb-4;
+        }
+        p{
+            @apply max-w-[23.125rem];
+        }
+    }
+    .urls{
+        @apply grid grid-cols-2;
+        row-gap: 4rem;
+        column-gap: 1.75rem;
+        h1{
+            @apply text-[2rem] mt-[2.5rem] mb-4;
+        }
+        p{
+            @apply text-base max-w-[21.25rem];
+        }
+    }
+}

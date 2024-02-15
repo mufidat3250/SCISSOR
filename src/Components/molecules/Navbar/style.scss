@@ -1,7 +1,16 @@
 .nav-bar{
-    @apply flex justify-between;
+    @apply flex justify-between items-center;
 
-    .btn-wrapper{
-        @apply flex;
+
+    ul.tab-wrapper{
+        @apply flex gap-[2.5rem];
+        li{
+            @apply text-[#141414] text-lg list-none;
+        }
     }
+     .btn-wrapper{
+        @apply flex items-center gap-[1.5rem];
+        
+    }
+    
 }

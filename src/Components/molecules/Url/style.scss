@@ -1,0 +1,17 @@
+
+.trim-url{
+        @apply my-[5.28125rem] grid place-items-center h-[32.8675rem] bg-[url(/Images/features.png)];
+    .url-wrapper{
+            @apply bg-white w-fit mx-auto p-20 px-[2.625rem] pt-[2.625rem] pb-[3.25rem] rounded-[0.75rem];
+
+            .input-wrapper{
+                @apply w-[24.5rem] grid grid-cols-2;
+                row-gap: 1.5rem;
+                column-gap: 0.75rem;
+
+                .first-input{
+                    @apply col-span-2;
+                }
+            }
+        }
+}

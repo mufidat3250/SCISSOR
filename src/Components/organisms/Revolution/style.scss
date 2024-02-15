@@ -1,0 +1,8 @@
+.revolution{
+    background-image: url('/Images/revolution.png');
+    @apply flex justify-center flex-col items-center gap-8 pt-[6.875rem] pb-[3.3125rem] bg-no-repeat bg-cover;
+
+    h1{
+        @apply text-[2.5rem] text-white font-bold;
+    }
+}
