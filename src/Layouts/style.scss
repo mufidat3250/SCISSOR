@@ -1,0 +1,7 @@
+.layout{
+    @apply overflow-hidden h-screen;
+
+    .children{
+        @apply overflow-auto;
+    }
+}

@@ -1,5 +1,5 @@
 .nav-bar{
-    @apply flex justify-between items-center;
+    @apply flex justify-between items-center  z-50 left-[10%] py-3;
 
 
     ul.tab-wrapper{

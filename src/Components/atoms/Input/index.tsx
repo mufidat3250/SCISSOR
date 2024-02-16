@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './style.scss'
 
 type inputProp = {
@@ -6,9 +7,11 @@ type inputProp = {
 }
 
 const Input = ({placeholder}:inputProp) => {
+    const [showPassword, setShowPassword] = useState(false)
     return (
         <div className="inputWrapper">
             <input type="text" placeholder={placeholder} />
+
         </div>
     )
 }

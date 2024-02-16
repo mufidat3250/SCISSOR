@@ -1,12 +1,11 @@
 import Button from '../../atoms/Button'
-import Input from '../../atoms/Input'
 import NavBar from '../../molecules/Navbar'
 import './style.scss'
 
 const Hero = () => {
     return (
         <div className='hero'>
-            <nav className='p-6'><NavBar/></nav>
+            {/* <nav className='p-6'><NavBar/></nav> */}
             <header> 
                 <p>Optimize Your Online Experience with Our Advanced</p>
                 <div className='advance flex'>
@@ -27,7 +26,7 @@ const Hero = () => {
                 </div>
                 <Button otherClass='!p-0 !m-0 text-base !w-fit rounded-none text-primary bg-none' title='Learn More'/>
 
-                <Input placeholder={'Past URL here...'} otherClass={''}/>
+                {/* <Input placeholder={'Past URL here...'} otherClass={''}/> */}
                 
             </div>
                 <div className='seamless'> 
