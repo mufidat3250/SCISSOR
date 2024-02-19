@@ -1,10 +1,10 @@
 .footer-wrapper{
-    @apply relative pt-[5.9375rem] pb-48; 
+    @apply relative lg:pt-[5.9375rem] pb-48; 
 
     .footer{
-        @apply flex justify-between flex-col;
+        @apply flex justify-between mt-12 flex-col;
     }
     .footerLink{
-        @apply  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6;
+        @apply  grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-6;
     }
 }

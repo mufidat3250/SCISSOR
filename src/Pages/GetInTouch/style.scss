@@ -1,5 +1,5 @@
 .get-in-touch{
-    @apply  h-screen bg-no-repeat bg-cover flex flex-col place-items-center  lg:bg-[url(/Images/get-in-touch.png)];
+    @apply  h-auto lg:h-screen bg-no-repeat bg-cover flex flex-col place-items-center  lg:bg-[url(/Images/get-in-touch.png)];
 
     .form-container{
         @apply  h-fit grid place-items-center mt-[4rem];

@@ -31,7 +31,7 @@ const SignUp = () => {
                 <span className="flex-1 h-[2px] bg-[#A0B1C0]"></span>
             </div>
             <div className="flex flex-col">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 h-[18rem] overflow-auto">
             <div>
             <Input placeholder="Username" otherClass={""} setShowPassword={()=>{}}/>
             <span className="invisible  text-red-400 mt-1">Err</span>
@@ -49,12 +49,16 @@ const SignUp = () => {
             <span className="invisible  text-red-400 mt-1">Err</span>
             </div>
             </div>
+
             <Button title="Sign up" otherClass="my-4 bg-primary"/>
             </div>
-            <span className="text-center mb-4">Already have an account? <span className="text-primary cursor-pointer" onClick={()=> navigate('/login')}>Log in</span></span>
+            
+            <div className=''>
+            <span className="flex justify-center mb-4">Already have an account? <span className="text-primary cursor-pointer" onClick={()=> navigate('/login')}>Log in</span></span>
             <div className=" text-center text-xs">
             <span>By signing up, you agree to <br/>
 Sciccor's <span className="font-bold">Terms of Service, Privacy Policy</span> and <span className="font-bold">Acceptable Use Policy.</span></span>
+            </div>
             </div>
         </div>
         <Footer/>

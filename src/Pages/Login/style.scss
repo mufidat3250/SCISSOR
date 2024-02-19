@@ -1,11 +1,12 @@
 .login-wrapper{
-            @apply  h-screen;
+            @apply  h-full;
 
     .login{
-        @apply flex  flex-col mx-auto max-w-[28.75rem] pt-[8.25rem] h-screen;
+        @apply flex  flex-col mx-auto px-[1.5rem] mt-[-5rem] max-w-[28.75rem] pt-[8.25rem] h-screen;
         p{
             @apply  text-center;
         }
+
         .login-btn{
             @apply flex gap-6 self-center mt-4;
         }

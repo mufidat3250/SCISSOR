@@ -94,7 +94,7 @@ const GetInTouch = () => {
           </form>
         </span>
       </div>
-      <div className="w-full pt-[6rem]">
+      <div className="w-full  lg:pt-[6rem]">
         {" "}
         <Footer />
       </div>

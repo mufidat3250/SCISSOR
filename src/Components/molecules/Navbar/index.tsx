@@ -61,7 +61,7 @@ const NavBar = () => {
         </div>
         <div>
         </div>
-        <div className={`tab-container ${isOpen ? 'ml-[0%] ease-in-out duration-300': 'ml-[-100%]'}`}>
+        <div className={`tab-container ${isOpen ? 'ml-[0%] ease-in-out duration-300': 'ml-[-150%]'}`}>
                <div className='flex items-center justify-between'>
                 <Logo color={'#005AE2'}/>
                <CloseIcon  onClick={()=> setIsOpen(false)}/>
