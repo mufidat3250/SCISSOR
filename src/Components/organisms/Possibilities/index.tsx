@@ -73,7 +73,7 @@ const Possibbilities = () => {
             </div>
 
             <div className='urls'>
-                {urlData.map(({icon, title, desc})=> <div>
+                {urlData.map(({icon, title, desc}, index)=> <div key={`--${index}`}>
                     <img src={icon} alt=""/>
                     <h1>{title}</h1>
                     <p>{desc}</p>

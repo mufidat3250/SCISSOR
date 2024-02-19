@@ -16,7 +16,7 @@ const Pricing = () => {
                     </div>
             <div className='pricing-cards'>
             {price.map(({title, desc, list, price}, index)=> {
-                return (<PricingCard title={title} desc={desc} price={price} list={list} index ={index} />)
+                return (<PricingCard title={title} desc={desc} price={price} list={list} index ={index} key={index}/>)
              })}
             </div>
             <div className='flex mt-[8.625rem] justify-center pb-[6.6875rem]'>

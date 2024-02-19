@@ -11,10 +11,10 @@ type buttonProps = {
 
 const Button = ({ title, prefixIcon, surfixIcon, otherClass }: buttonProps) => {
   return (
-    <div className={`button-wrapper ${otherClass}`}>
+    <button className={`button-wrapper ${otherClass}`}>
       <span>{surfixIcon && surfixIcon}</span> <span>{title}</span>{" "}
       <span>{prefixIcon && prefixIcon}</span>
-    </div>
+    </button>
   );
 };
 

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Logo from '../../../Vectors/Logo'
 import Button from '../../atoms/Button'
 import './style.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const tabs = [
@@ -29,12 +29,7 @@ const tabs = [
 ]
 const NavBar = () => {
     const [active, setActive] = useState(0)
-    const [show, setShow] = useState(true)
-    const [lastScrolly, setLastScrolly] = useState(0)
-
-
-
-
+    
     return (
         <div className='nav-bar container'>
         <Logo color={'#005AE2'}/>
@@ -47,7 +42,9 @@ const NavBar = () => {
                 <Link to='/login'>
                 <Button otherClass='!p-0 !m-0 text-base rounded-none text-primary bg-none' title='Login'/>
                 </Link>
+                <Link to='/get-in-touch'>
                 <Button title='Get In Touch' otherClass='bg-primary w-full text-bases font-normal w-[8.875rem]'/>
+                </Link>
 
         </div>
         </div>

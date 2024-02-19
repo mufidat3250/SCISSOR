@@ -7,10 +7,12 @@ import GoogleIcon from "../../Vectors/GoogleIcon"
 import './style.scss'
 import Eyes from "../../Vectors/Eyes"
 import EyeOff from "../../Vectors/EyeOff"
+import { useNavigate } from "react-router-dom"
 
 const SignUp = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [reTypePassword, setReTypePassword] = useState(false)
+    const navigate = useNavigate()
      return (
         <div className="login-wrapper">
             <div className="login">
@@ -49,7 +51,7 @@ const SignUp = () => {
             </div>
             <Button title="Sign up" otherClass="my-4 bg-primary"/>
             </div>
-            <span className="text-center mb-4">Already have an account? <span>Log in</span></span>
+            <span className="text-center mb-4">Already have an account? <span className="text-primary cursor-pointer" onClick={()=> navigate('/login')}>Log in</span></span>
             <div className=" text-center text-xs">
             <span>By signing up, you agree to <br/>
 Sciccor's <span className="font-bold">Terms of Service, Privacy Policy</span> and <span className="font-bold">Acceptable Use Policy.</span></span>

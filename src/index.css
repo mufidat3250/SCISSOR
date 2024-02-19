@@ -6,6 +6,20 @@ h1, h2, h3, h4,h5,h6,p{
   padding: 0;
   margin: 0;
 }
+@font-face {
+  font-family:'Gilroy-Black';
+  src: local('Gilroy'), 
+       url('/src/Fonts/Gilroy-Black.woff') format('woff')
+       url('/src/Fonts/Gilroy-Black.woff') format('woff')
+
+}
+@font-face {
+  font-family:'Gilroy-bold';
+  src: local('Gilroy'), 
+       url('/src/Fonts/Gilroy-Black.woff') format('woff')
+       url('/src/Fonts/Gilroy-Black.eot') format('eot')
+
+}
 
 
 body{
@@ -23,3 +37,7 @@ body{
   margin: 0 auto;
   max-width: 80%;
 }
+::-webkit-scrollbar {
+  width: 0;
+}
+

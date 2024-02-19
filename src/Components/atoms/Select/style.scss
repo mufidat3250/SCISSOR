@@ -1,10 +1,20 @@
 .select-wrapper{
-    @apply w-full;
+    @apply w-full overflow-hidden;
 
     p{
         @apply mb-[8px];
     }
     select{
-        @apply w-full p-[12px] rounded-[12px] border-[1px];
+        @apply w-full p-[12px] rounded-[12px] h-full outline-none border-none;
+    }
+}
+.custom-select{
+    @apply  relative text-gray-400;
+
+    .select-header{
+        @apply p-4 w-full cursor-pointer border-[1px] border-primary rounded-[0.75rem];
+    }
+    .select-list{
+    @apply absolute cursor-pointer bottom-[-3.5rem] border-[1px] z-50 bg-white w-full h-fit px-4 py-3 shadow-2xl rounded-md text-black;
     }
 }

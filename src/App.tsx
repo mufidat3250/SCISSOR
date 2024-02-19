@@ -18,9 +18,9 @@ function App() {
   console.log(params)
   return (
   <div className='overflow-hidden h-screen'>
-    {/* <div className='shadow-lg'>
+    <div className='shadow-lg'>
     <NavBar/>
-    </div> */}
+    </div>
     <div className='overflow-auto h-screen'>
       <Routes>
       <Route path='/' element={<Home/>}/>
