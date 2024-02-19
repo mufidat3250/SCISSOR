@@ -1,5 +1,5 @@
 .price-wrapper{
-        @apply border-[1px] border-primary rounded-[0.75rem] w-fit bg-white pl-[5.4375rem] pt-[1.5rem] pr-[6.125rem] pb-[2.8125rem];
+        @apply border-[1px] border-primary rounded-[0.75rem] w-fit bg-white pl-[1.5rem] xl:pl-[5.4375rem] pt-[1.5rem] pr-[3.5rem] md:pr-[6.125rem] pb-[2.8125rem];
     .title{
         @apply text-[1.5rem];
     }

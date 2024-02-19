@@ -12,8 +12,10 @@ const Url = () => {
                 <div className='first-input'>
                 <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
                 </div>
-                <CustomSelect list={['React', 'Next', 'Tailwind']}/>
+                <div className='sec-input'><CustomSelect list={['React', 'Next', 'Tailwind']}/></div>
+                <div className='third-input'>
                 <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
+                </div>
                 <div className='col-span-2'>
                     <Button title='Trim URL' prefixIcon={<MargicWand/>} otherClass='bg-primary'/>
                 </div>

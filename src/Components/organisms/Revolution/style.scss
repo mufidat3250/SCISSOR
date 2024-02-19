@@ -3,6 +3,6 @@
     @apply flex justify-center flex-col items-center gap-8 pt-[6.875rem] pb-[3.3125rem] bg-no-repeat bg-cover;
 
     h1{
-        @apply text-[2.5rem] text-white font-bold;
+        @apply text-[2rem] text-center md:text-[2.5rem] text-white font-bold;
     }
 }

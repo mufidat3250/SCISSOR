@@ -14,7 +14,7 @@ const FAQS = () => {
                     </span>
                     <h1 className='text-[2.5rem] leading-[1.81rem] font-semibold'>FAQs</h1>
                 </div>
-            <div className='gap-4 flex flex-col'>
+            <div className='gap-4 flex flex-col pt-5 h-[18rem] mt-10 overflow-y-auto md:h-fit px-10'>
                 {faqs.map(({title, desc}, index)=> <FAQ title={title} desc={desc} key={`faq${index}`}/>)}
             </div>
         </div>

@@ -10,7 +10,7 @@ const Hero = () => {
                 <p>Optimize Your Online Experience with Our Advanced</p>
                 <div className='advance flex'>
                 <p>Advanced </p>
-                <div className='m-0 flex flex-col justify-center items-center bg-red-500 w-fit md:max-w-96'>
+                <div className='m-0 flex flex-col justify-center items-center w-fit md:max-w-96'>
                     <p> URL Shortening </p>
                     <img src="/vectors/shortner.svg" alt="" className='max-w-[50%]' />
                 </div>

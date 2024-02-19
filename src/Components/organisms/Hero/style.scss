@@ -1,7 +1,7 @@
 .hero{
     @apply flex flex-col  relative h-screen bg-gradient-to-tr from-[#ffffff] via-[hsl(120,61%,94%)] to-[#d8cfa5] ;
     header{
-        @apply flex justify-center items-center flex-col font-semibold mt-[3rem] leading-[4.5rem];
+        @apply flex justify-center items-center flex-col font-semibold mt-[3rem] leading-[5rem] gap-[10px];
         p{
              @apply text-[1.2rem] md:text-[1.8rem] leading-[2.9rem] lg:text-[2.5rem] xl:text-[3rem] text-center;
          }

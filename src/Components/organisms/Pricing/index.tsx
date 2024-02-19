@@ -19,7 +19,7 @@ const Pricing = () => {
                 return (<PricingCard title={title} desc={desc} price={price} list={list} index ={index} key={index}/>)
              })}
             </div>
-            <div className='flex mt-[8.625rem] justify-center pb-[6.6875rem]'>
+            <div className='flex mt-[4rem] md:mt-[8.625rem] justify-center md:pb-[6.6875rem]'>
                 <div className='w-[12.5rem]'><Button title='Select Pricing' otherClass='bg-primary'/></div>
             </div>
         </div>
