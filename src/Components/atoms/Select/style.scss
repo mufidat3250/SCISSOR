@@ -1,0 +1,10 @@
+.select-wrapper{
+    @apply w-full;
+
+    p{
+        @apply mb-[8px];
+    }
+    select{
+        @apply w-full p-[12px] rounded-[12px] border-[1px];
+    }
+}

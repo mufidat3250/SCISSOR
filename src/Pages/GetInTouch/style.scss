@@ -1,0 +1,16 @@
+.get-in-touch{
+    background-image: url('/Images/get-in-touch.png');
+    height: 100vh;
+    @apply  h-screen bg-no-repeat bg-cover flex flex-col place-items-center ;
+
+    .form-container{
+        @apply  h-fit grid place-items-center mt-[4rem];
+    }
+
+    .form{
+        @apply bg-[#CBD6E0] shadow-2xl rounded-lg max-w-[35.625rem]  max-h-[40rem] overflow-auto w-[35.625rem] pl-[1.875rem] pr-[3rem] py-[2rem] flex flex-col gap-4;
+    }
+    .form-wrapper{
+         @apply  gap-[1rem] overflow-auto flex flex-col;
+    }
+}
