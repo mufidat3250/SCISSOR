@@ -1,16 +1,38 @@
-.nav-bar{
-    @apply flex justify-between items-center  z-50 left-[10%] py-3;
 
-
-    ul.tab-wrapper{
-        @apply flex gap-[2.5rem];
-        li{
-            @apply text-[#141414] text-lg list-none;
+.nav-bar-wrapper{
+    @apply relative;
+    .nav-bar{
+        @apply justify-between items-center  z-50 left-[10%] py-3 hidden lg:flex;
+    
+    
+        ul.tab-wrapper{
+            @apply flex gap-[2.5rem];
+            li{
+                @apply text-[#141414] text-lg list-none;
+            }
         }
-    }
-     .btn-wrapper{
-        @apply flex items-center gap-[1.5rem];
+         .btn-wrapper{
+            @apply flex items-center gap-[1.5rem];
+            
+        }
         
     }
-    
+    .mobile{
+        @apply flex relative lg:hidden;
+
+
+    .tab-container{
+        @apply absolute h-screen w-full right-0 left-0 top-0 bg-white p-4 -mr-10;
+
+        .tab-wrapper{
+            @apply flex flex-col gap-8 mt-20;
+}
+.btn-wrapper{
+    @apply flex justify-center gap-4 mt-8;
+}
+
+    }
+        
+
+    }
 }

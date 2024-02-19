@@ -27,15 +27,14 @@ body{
   padding: 0;
   height: 100vh;
   overflow: hidden;
-  /* background: linear-gradient(#D60505, #067808, #EAC81F, #FFFFFF); */
 }
 *{
   box-sizing: border-box;
 }
 
 .container{
-  margin: 0 auto;
-  max-width: 80%;
+   @apply mx-auto mt-0 max-w-[95%] lg:max-w-[90%];
+
 }
 ::-webkit-scrollbar {
   width: 0;
