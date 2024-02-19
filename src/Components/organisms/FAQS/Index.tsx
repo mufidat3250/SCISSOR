@@ -1,4 +1,3 @@
-import React from 'react'
 import FAQ from '../../atoms/FAQ'
 import Qoutation from '../../../Vectors/Qoute'
 import { faqs } from '../../../data'

@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../../atoms/Button'
-import NavBar from '../../molecules/Navbar'
 import './style.scss'
 
 const Hero = () => {

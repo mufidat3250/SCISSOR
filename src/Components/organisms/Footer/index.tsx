@@ -1,4 +1,3 @@
-import React from "react";
 import './style.scss'
 import Logo from "../../../Vectors/Logo";
 import { footerLink } from "../../../data";

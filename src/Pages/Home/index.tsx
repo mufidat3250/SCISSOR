@@ -1,4 +1,3 @@
-import React from "react";
 import Hero from "../../Components/organisms/Hero";
 import Possibbilities from "../../Components/organisms/Possibilities";
 import Pricing from "../../Components/organisms/Pricing";

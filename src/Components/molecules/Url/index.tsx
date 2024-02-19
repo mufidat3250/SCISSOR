@@ -2,7 +2,7 @@ import './style.scss'
 import Input from '../../atoms/Input'
 import Button from '../../atoms/Button'
 import MargicWand from '../../../Vectors/margic-wand'
-import Select, { CustomSelect } from '../../atoms/Select'
+import {CustomSelect } from '../../atoms/Select'
 
 const Url = () => {
     return (
@@ -12,7 +12,6 @@ const Url = () => {
                 <div className='first-input'>
                 <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
                 </div>
-                {/* <Select options={[]} otherClass='h-full border-[1px] border-primary rounded-[0.75rem]'/> */}
                 <CustomSelect list={['React', 'Next', 'Tailwind']}/>
                 <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
                 <div className='col-span-2'>
