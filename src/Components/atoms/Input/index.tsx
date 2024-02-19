@@ -12,8 +12,7 @@ type inputProp = {
 
 const Input = ({placeholder, showPassword, setShowPassword, otherClass, icon, label}:inputProp) => {
     
-    
-        return (
+    return (
            <div>
              {label && <p className='mb-2'>{label}</p>}
         <div className={`inputWrapper ${otherClass}`}>

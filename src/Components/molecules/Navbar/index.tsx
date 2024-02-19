@@ -37,7 +37,9 @@ const NavBar = () => {
 
         <div className='nav-bar-wrapper'>
         <div className='nav-bar container'>
+        <Link to='/'>
         <Logo color={'#005AE2'}/> 
+        </Link>
          <ul className='tab-wrapper'>
         {tabs.map(({title, link}, index)=> <li className={`${index === active ? '!text-[#0065FE]' :''}`} onClick={()=> setActive(index)} key={index}>
             <a href={link}>{title}</a>

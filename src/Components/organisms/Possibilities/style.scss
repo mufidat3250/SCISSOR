@@ -1,11 +1,11 @@
 .posibility{
-    @apply  flex justify-between items-center;
+    @apply  flex justify-between flex-col md:flex-row md:items-center;
 
     .header{
-        @apply max-w-[21.0625rem] text-[2.5rem] py-[3.875rem];
+        @apply max-w-[21.0625rem] text-[2.5rem] py-[2rem] md:py-[3.875rem];
     }
     .users{
-        @apply gap-[4.5rem] flex;
+        @apply gap-[1.5rem] md:gap-[4.5rem] grid grid-cols-2 md:grid-cols-4;
 
         .user{
             @apply text-[#141414];
@@ -19,7 +19,7 @@
     }
 }
 .scissors{
-    @apply flex justify-between py-32; 
+    @apply flex justify-between gap-10 flex-col xl:flex-row py-32 ; 
 
     .why{
         @apply flex gap-4; 
@@ -32,11 +32,11 @@
             @apply text-[2.5rem] leading-10 mb-4;
         }
         p{
-            @apply max-w-[23.125rem];
+            @apply max-w-[38rem] xl:max-w-[23.125rem];
         }
     }
     .urls{
-        @apply grid grid-cols-2;
+        @apply grid sm:grid-cols-2;
         row-gap: 4rem;
         column-gap: 1.75rem;
         h1{

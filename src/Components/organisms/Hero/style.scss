@@ -3,13 +3,18 @@
     header{
         @apply flex justify-center items-center flex-col font-semibold mt-[3rem] leading-[4.5rem];
         p{
-             @apply text-[3rem] text-center;
+             @apply text-[1.2rem] md:text-[1.8rem] leading-[2.9rem] lg:text-[2.5rem] xl:text-[3rem] text-center;
          }
          .advance{
-            @apply flex gap-[0.9rem];
+            @apply flex  md:gap-[0.9rem];
          }
     }
-
+    .desc{
+        @apply max-w-[48.512rem] mx-auto text-center text-lg mt-4 mb-[2rem] max-h-[6.5625rem] px-5;
+    }
+    .btn-wrap{
+        @apply  flex justify-center items-center gap-[3.5rem] mt-10 md:mt-0;
+    }
     .seamless{
         @apply absolute bottom-0 w-full;
     }
