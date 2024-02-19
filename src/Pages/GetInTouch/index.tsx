@@ -16,7 +16,7 @@ const GetInTouch = () => {
           <form className="form">
             <div className="form-wrapper">
               <Input
-                otherClass="!bg-white !border-none rounded-[0.75rem] overflow-hidden py-0"
+                otherClass="!bg-white !border-none !w-auto rounded-[0.75rem] overflow-hidden py-0"
                 placeholder={""}
                 label="First Name*"
                 setShowPassword={() => {}}

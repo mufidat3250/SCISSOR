@@ -32,7 +32,6 @@ const tabs = [
 const NavBar = () => {
     const [active, setActive] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
-    console.log(isOpen)
     
     return (
 

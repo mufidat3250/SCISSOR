@@ -17,7 +17,7 @@ const Footer = () => {
         className="absolute left-0 bottom-0"
       />
       <div className="footer container">
-        <div className="flex justify-between">
+        <div className="flex justify-between  flex-col gap-10 md:flex-row">
         <div className="gap-4">
           <Logo color={"#141414"} />
           <div className="flex gap-4">
@@ -40,7 +40,7 @@ const Footer = () => {
           ))}
         </div>
         </div>
-        <div className="flex justify-end mt-[1.4375rem]">
+        <div className="flex  justify-center lg:justify-end mt-[1.4375rem]">
         <p>Term of Service | Security | ⓒ Scissor 2023</p>
       </div>
       </div>
