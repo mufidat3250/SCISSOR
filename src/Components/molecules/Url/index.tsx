@@ -10,11 +10,11 @@ const Url = () => {
             <div className='url-wrapper'>
             <div className='input-wrapper'>
                 <div className='first-input'>
-                <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
+                {/* <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/> */}
                 </div>
                 <div className='sec-input'><CustomSelect list={['React', 'Next', 'Tailwind']}/></div>
                 <div className='third-input'>
-                <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/>
+                {/* <Input placeholder='Past URL here' otherClass={'w-full'} setShowPassword={()=>{}}/> */}
                 </div>
                 <div className='col-span-2'>
                     <Button title='Trim URL' prefixIcon={<MargicWand/>} otherClass='bg-primary'/>

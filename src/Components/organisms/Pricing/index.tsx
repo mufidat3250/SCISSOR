@@ -8,9 +8,9 @@ const Pricing = () => {
     return (
         <div className='pricing'>
                     <div className='title-wrapper'>
-                        <div className='h-[5rem]'><Qoutation/></div>
+                        <div className='h-[5rem] mt-[1.225rem]'><Qoutation/></div>
                     <div className='price-perfect'>
-                    <h1>A <span className='text-primary'>price perfect</span> for your needs.</h1>
+                    <h1>A <span className='text-primary leading-relaxed'>price perfect</span> for your needs.</h1>
                     <p>From catering for your personal, business, event, socials needs, you can be rest assured we have you in mind in our pricing.</p>
                     </div>
                     </div>

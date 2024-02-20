@@ -10,15 +10,15 @@ import MenuIcon from '../../../Vectors/MenuIcon'
 const tabs = [
     {
     title:'My URLs',
-    link:'/',
+    link:'/url',
     },
     {
         title:'Features',
-        link:'#features',
+        link:'/features',
     },
     {
         title:'Pricing',
-        link:'#pricing',
+        link:'/pricing',
     },
     {
         title:'Analytics',
@@ -26,7 +26,7 @@ const tabs = [
     },
     {
         title:'FAQs',
-        link:'#faqs',
+        link:'/faqs',
     },
 ]
 const NavBar = () => {
@@ -42,7 +42,7 @@ const NavBar = () => {
         </Link>
          <ul className='tab-wrapper'>
         {tabs.map(({title, link}, index)=> <li className={`${index === active ? '!text-[#0065FE]' :''}`} onClick={()=> setActive(index)} key={index}>
-            <a href={link}>{title}</a>
+            <Link to={link}>{title}</Link>
         </li>)}
         </ul> 
 
@@ -69,9 +69,12 @@ const NavBar = () => {
                <CloseIcon  onClick={()=> setIsOpen(false)}/>
                </div>
         <ul className='tab-wrapper'>
-        {tabs.map(({title, link}, index)=> <li className={`${index === active ? '!text-[#0065FE] border-b border-primary pb-3 ease-in-out duration-500' :''}`} onClick={()=> setActive(index)} key={index}>
+        {tabs.map(({title, link}, index)=> {
+            console.log({index, active})
+            return <li className={`${index === active ? '!text-[#0065FE] border-b border-primary pb-3 ease-in-out duration-500' :'black'}`} onClick={()=> setActive(index)} key={index}>
             <a href={link}>{title}</a>
-        </li>)}
+        </li>
+        })}
         </ul> 
         <div className='btn-wrapper'>
                 <Link to='/login'>

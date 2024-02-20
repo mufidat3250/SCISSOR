@@ -11,10 +11,25 @@ import { useNavigate } from "react-router-dom"
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false)
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [errorMessage, setErrorMessage] = useState<{email:string, password:string}>({email:'', password:''})
+
+    const handleSubmit = (e:React.FormEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        if(!email){
+            errorMessage.email = 'Email must be provided'
+        }
+        if(!password){
+            errorMessage.password = 'Password must be provided'
+        }
+
+    }
     const navigate = useNavigate()
     return (
         <div className="login-wrapper">
             <div className="login">
+                <form action=""></form>
             <p>Log in with:</p>
             <div className="login-btn">  
             <div className="w-[6.8125rem]">
@@ -29,14 +44,16 @@ const Login = () => {
                 <span className=" px-[1.25rem]">Or</span>
                 <span className="flex-1 h-[2px] bg-[#A0B1C0]"></span>
             </div>
-            <div className="flex flex-col">
+            <form className="flex flex-col">
             <div className="flex flex-col gap-4">
-            <Input placeholder="Email address or username" otherClass={""} setShowPassword={()=>{}}/>
-            <Input placeholder="Password" otherClass={""} showPassword={showPassword} setShowPassword={setShowPassword} icon={showPassword? <Eyes/> : <EyeOff/>}/>
+            <Input placeholder="Email address or username" otherClass={""} setShowPassword={()=>{}} onChange={(e)=> {
+                setEmail(e.target.value)
+            }}/>
+            <Input placeholder="Password" otherClass={""} showPassword={showPassword} setShowPassword={setShowPassword} onChange={(e)=> setPassword(e.target.value)} icon={showPassword? <Eyes/> : <EyeOff/>}/>
             </div>
             <p className="text-primary self-end mt-2 cursor-pointer my">Forget your Password?</p>
             <Button title="Log In" otherClass="my-4 bg-primary"/>
-            </div>
+            </form>
             <span className="text-center mb-4">Don’t have an account? <span className="text-primary cursor-pointer" onClick={()=> navigate('/signup')}>Sign Up</span></span>
             <div className=" text-center text-xs text-[#A0B1C0]">
             <span>By signing in with  an account, you agree to <br/>
