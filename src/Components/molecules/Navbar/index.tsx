@@ -76,7 +76,6 @@ const NavBar = () => {
                </div>
         <ul className='tab-wrapper'>
         {tabs.map(({title, link}, index)=> {
-            console.log({index, active})
             return <li className={`${index === active ? '!text-[#0065FE] border-b border-primary pb-3 ease-in-out duration-500' :'black'}`} onClick={()=> setActive(index)} key={index}>
             <a href={link}>{title}</a>
         </li>

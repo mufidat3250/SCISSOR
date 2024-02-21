@@ -2,10 +2,23 @@ import "./style.scss";
 import Input from "../../Components/atoms/Input";
 import Button from "../../Components/atoms/Button";
 import Select from "../../Components/atoms/Select";
-import Footer from "../../Components/organisms/Footer";
+import { useState } from "react";
 
 
 const GetInTouch = () => {
+  const initialValue = {firstName:'', lastName:'', companyName:'', email:'', phoneNumber:'',}
+  const  [formInputs, setFormInput] = useState(initialValue)
+
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+      const {name, value} = e.target
+      setFormInput({...formInputs, [name]:value})
+  }
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+      // const {name, value} = 
+      console.log(e.target.value)
+      console.log('i am changing')
+  }
+
   return (
     <div className="get-in-touch">
       <div className="form-container">
@@ -20,31 +33,43 @@ const GetInTouch = () => {
                 placeholder={""}
                 label="First Name*"
                 setShowPassword={() => {}}
+                name= 'firstName'
+                onChange={handleChange}
               />
               <Input
                 otherClass="!bg-white !border-none rounded-[0.75rem] overflow-hidden py-0"
                 placeholder={""}
                 label="Last Name*"
                 setShowPassword={() => {}}
+                name='last name'
+                onChange={handleChange}
               />
               <Input
                 otherClass="!bg-white !border-none rounded-[0.75rem] overflow-hidden py-0"
                 placeholder={""}
                 label="Company Name*"
+                name='company name'
                 setShowPassword={() => {}}
+                onChange={handleChange}
               />
               <Input
                 otherClass="!bg-white !border-none rounded-[0.75rem] overflow-hidden py-0"
                 placeholder={""}
                 label="Business Email Address*"
                 setShowPassword={() => {}}
+                name='email'
+                onChange={handleChange}
               />
               <Input
                 otherClass="!bg-white !border-none rounded-[0.75rem] overflow-hidden py-0"
                 placeholder={""}
                 label="Phone Number*"
                 setShowPassword={() => {}}
+                name="phone-number"
+                onChange={handleChange}
               />
+              {/* <select name="" id=""></select> */}
+              
               <Select
                 options={[
                   "React Js Developer",
@@ -53,6 +78,7 @@ const GetInTouch = () => {
                   "Software developer",
                 ]}
                 label={"Job Title*"}
+                onSelect={handleSelect}
               />
               <Select
                 options={[
@@ -62,6 +88,7 @@ const GetInTouch = () => {
                   "Software developer",
                 ]}
                 label={"Company Size*"}
+                onSelect={handleSelect}
               />
               <Select
                 options={[
@@ -71,6 +98,7 @@ const GetInTouch = () => {
                   "Software developer",
                 ]}
                 label={"Primary Use Case*"}
+                onSelect={handleSelect}
               />
               <Select
                 options={[
@@ -80,6 +108,7 @@ const GetInTouch = () => {
                   "Software developer",
                 ]}
                 label={"Country*"}
+                onSelect={handleSelect}
               />
             </div>
             <p className="text-[0.75rem] mt-4 text-[#5C6F7F] font-[400] text-justify">
@@ -96,7 +125,6 @@ const GetInTouch = () => {
       </div>
       <div className="w-full  lg:pt-[6rem]">
         {" "}
-        <Footer />
       </div>
     </div>
   );

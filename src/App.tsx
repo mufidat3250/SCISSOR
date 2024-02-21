@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import { Navigate, Route, Routes, useNavigate} from 'react-router-dom'
 import './App.scss'
 import NavBar from './Components/molecules/Navbar'
 import SignUp from './Pages/SignUp'
@@ -12,6 +12,7 @@ import Possibbilities from './Components/organisms/Possibilities'
 import Revolution from './Components/organisms/Revolution'
 import Pricing from './Components/organisms/Pricing'
 import { useEffect } from 'react'
+import Notfound from './Pages/Notfound'
 
 function App() {
   const navigate = useNavigate()
@@ -39,6 +40,8 @@ function App() {
         <Route path='features' element={<Possibbilities/>}/>
         <Route path='/revolution' element={<Revolution/>}/>
         <Route path='pricing' element={<Pricing/>}/>
+        <Route path='/404' element={<Notfound/>}/>
+        <Route path='*' element={<Navigate replace to='/404'/>}/>
       </Routes>
       <Footer/>
 

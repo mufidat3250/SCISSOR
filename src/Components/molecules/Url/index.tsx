@@ -1,5 +1,5 @@
 import "./style.scss";
-import Input from "../../atoms/Input";
+// import Input from "../../atoms/Input";
 import Button from "../../atoms/Button";
 import MargicWand from "../../../Vectors/margic-wand";
 import { CustomSelect } from "../../atoms/Select";

@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../../atoms/Button'
 import './style.scss'
-import { useEffect } from 'react'
 
 const Hero = () => {
     const navigate = useNavigate()

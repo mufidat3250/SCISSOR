@@ -120,7 +120,7 @@ const SignUp = () => {
 
   };
 
-
+console.log(user)
   return (
     <div className="login-wrapper">
       <div className="login">

@@ -8,17 +8,22 @@ const Select = ({
   options: string[];
   label?: string;
   otherClass?: string;
+  onSelect:(e: React.ChangeEvent<HTMLSelectElement>) => void
 }) => {
   return (
     <div className={`${otherClass} select-wrapper`}>
       <p>{label}</p>
       <select name="" id="" className="">
         <option value="">Select an Item </option>
-        {options.map((data, index) => (
-          <option value={data} key={index}>
+        {options.map((data, index) => {
+         return (
+            <>
+            <option value={data} key={index}>
             {data}
           </option>
-        ))}
+          </>
+          )
+        } )}
       </select>
     </div>
   );

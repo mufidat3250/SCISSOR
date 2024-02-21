@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Button from "../../Components/atoms/Button";
 import Input from "../../Components/atoms/Input";
-import Footer from "../../Components/organisms/Footer";
 import AppleIcon from "../../Vectors/AppleIcon";
 import GoogleIcon from "../../Vectors/GoogleIcon";
 import "./style.scss";
@@ -13,8 +12,6 @@ import {auth} from '../../firebase'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState<{
     email: string;
     password: string;
@@ -25,15 +22,27 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!email) {
-      errorMessage.email = "Email must be provided";
+    if (!formsValue.email) {
+      setErrorMessage({...errorMessage, email:"Email must be provided"})
     }else if (!emailRegex.test(formsValue.email)){
-
+      setErrorMessage({...errorMessage, email:'Format example@gmail.com'})
+    }else{
+      setErrorMessage({...errorMessage, email:''})
     }
-    if (!password) {
-      errorMessage.password = "Password must be provided";
-    }else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(password)){
-        errorMessage.password = 'password is incorect'
+    if (!formsValue.password) {
+      setErrorMessage({...errorMessage, password:"Password must be provided"})
+      setTimeout(() => {
+        setErrorMessage({...errorMessage, password:''})
+      }, 2000);
+    }else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(formsValue.password)){
+        setErrorMessage({...errorMessage, password:'password is incorect'})
+
+        setTimeout(() => {
+          setErrorMessage({...errorMessage, password:''})
+        }, 3000)
+        
+    }else{
+      setErrorMessage({...errorMessage, password:''})
     }
 
     signInWithEmailAndPassword(auth, formsValue.email, formsValue.password)
@@ -88,6 +97,7 @@ const Login = () => {
               onChange={handleChange}
               name="email"
             />
+            <p className={` text-red-500 ${errorMessage.email? 'visible': 'invisible'}`}>{errorMessage.email}</p>
             <Input
               placeholder="Password"
               otherClass={""}
@@ -98,6 +108,7 @@ const Login = () => {
               name='password'
 
             />
+            <p className={` text-red-500 ${errorMessage.password? 'visible': 'invisible'}`}>{errorMessage.password}</p>
           </div>
           <p className="text-primary self-end mt-2 cursor-pointer my">
             Forget your Password?
@@ -127,7 +138,6 @@ const Login = () => {
           </span>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
