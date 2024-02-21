@@ -1,7 +1,20 @@
+import { useNavigate } from 'react-router-dom'
 import Button from '../../atoms/Button'
 import './style.scss'
+import { useEffect } from 'react'
 
 const Revolution = () => {
+    const navigate = useNavigate()
+    useEffect(()=> {
+        let authToken = sessionStorage.getItem('Auth Token')
+        console.log({authToken})
+        if(authToken){
+          navigate('revolution')
+        }
+        if(!authToken){
+          navigate('login')
+        }
+    }, [])
     return (
         <div className='revolution'>
             <h1>Revolutionizing Link Optimization</h1>

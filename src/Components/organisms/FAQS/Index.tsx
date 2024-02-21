@@ -1,8 +1,21 @@
 import FAQ from '../../atoms/FAQ'
 import Qoutation from '../../../Vectors/Qoute'
 import { faqs } from '../../../data'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const FAQS = () => {
+    const navigate = useNavigate()
+    useEffect(()=> {
+        let authToken = sessionStorage.getItem('Auth Token')
+        console.log({authToken})
+        if(authToken){
+          navigate('/faqs')
+        }
+        if(!authToken){
+          navigate('login')
+        }
+    }, [])
     return (
         <div className='relative h-screen grid place-items-center'>
             <img src="/Images/Group 3.png" alt="" className='absolute left-0'/>

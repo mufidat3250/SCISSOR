@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Logo from '../../../Vectors/Logo'
 import Button from '../../atoms/Button'
 import './style.scss'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import CloseIcon from '../../../Vectors/CloseIcon'
 import MenuIcon from '../../../Vectors/MenuIcon'
 
@@ -32,6 +32,12 @@ const tabs = [
 const NavBar = () => {
     const [active, setActive] = useState(0)
     const [isOpen, setIsOpen] = useState(false)
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('Auth Token');
+        navigate('/login')
+    }
     
     return (
 
@@ -47,9 +53,9 @@ const NavBar = () => {
         </ul> 
 
         <div className='btn-wrapper'>
-                <Link to='/login'>
-                <Button otherClass='!p-0 !m-0 text-base rounded-none text-primary bg-none' title='Login'/>
-                </Link>
+                <div onClick={handleLogout}>
+                <Button otherClass='!p-0 !m-0 text-base rounded-none text-primary bg-none' title='Log Out'/>
+                </div>
                 <Link to='/get-in-touch'>
                 <Button title='Get In Touch' otherClass='bg-primary w-full text-bases font-normal w-[8.875rem]'/>
                 </Link>
@@ -77,9 +83,9 @@ const NavBar = () => {
         })}
         </ul> 
         <div className='btn-wrapper'>
-                <Link to='/login'>
-                <Button otherClass='!p-0 !m-0 text-base rounded-none text-primary bg-none bg-primary text-white  w-[10.875rem] h-full rounded-[12px]' title='Login'/>
-                </Link>
+                <div onClick={handleLogout}>
+                <Button otherClass='!p-0 !m-0 text-base rounded-none text-primary bg-none bg-primary text-white  w-[10.875rem] h-full rounded-[12px]' title='Log Out'/>
+                </div>
                 <Link to='/get-in-touch'>
                 <Button title='Get In Touch' otherClass='bg-primary  text-bases font-normal w-[10.875rem] !rounded-[12px]'/>
                 </Link>

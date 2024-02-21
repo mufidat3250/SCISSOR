@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import Button from "../../Components/atoms/Button";
 import Input from "../../Components/atoms/Input";
 import Footer from "../../Components/organisms/Footer";
@@ -8,19 +8,27 @@ import "./style.scss";
 import Eyes from "../../Vectors/Eyes";
 import EyeOff from "../../Vectors/EyeOff";
 import { useNavigate } from "react-router-dom";
-
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
 
 type initialValueType = {
-    firstName:string,
-    lastName:string,
-    email:string,
-    password:string,
-    userName:string,
-    confirmPassword:string
-}
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 const SignUp = () => {
-    const initialValue = {firstName: "", lastName: "", email: "", password: "", userName: "", confirmPassword: "",
-      }
+  const initialValue = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    userName: "",
+    confirmPassword: "",
+  };
+  const [user, setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [reTypePassword, setReTypePassword] = useState(false);
   const [formValues, setFormValues] = useState<initialValueType>(initialValue);
@@ -33,186 +41,87 @@ const SignUp = () => {
     confirmPassword: "",
   });
   const navigate = useNavigate();
-  const handleChange = (e:React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>)=> {
-        const {name, value} = e.target;
-        setFormValues({...formValues, [name]:value})
 
-        console.log({name}, {value})
-  }
-
-  const handleSubmitt: React.FormEventHandler<HTMLFormElement> = (
-    e: React.FormEvent<HTMLElement>
+  const handleChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
   ) => {
-    e.preventDefault();
-
-    if(!formValue.firstName) {
-        setErrorMessage(() => ({
-          ...errorMessage,
-          firstName: "FirstName is required",
-        }));
-      }else if (!/^.[A-Za-z]{2,16}$/g.test(formValue.firstName)) {
-        setErrorMessage(() => ({
-          ...errorMessage,
-          firstName: "Name must be Alpha numeric and contain character from 3-16",
-        }));
-       } else {
-        setErrorMessage(() => ({ ...errorMessage, firstName: "" }));
-       }
-
-    if (!formValue.lastName) {
-        setErrorMessage(() => ({
-          ...errorMessage,
-          lastName: "Lastname is required",
-        }));
-        }else if (!/^.[A-Za-z]{2,16}$/g.test(formValue.lastName)) {
-            setErrorMessage(() => ({
-              ...errorMessage,
-              lastName:
-                "UserName must be Alpha numeric and contain character from 3-16",
-            }));
-          } else {
-            setErrorMessage(() => ({ ...errorMessage, lastName: "" }));
-          }
-
-    
-
-     
-
-    console.log(formValue)
-    console.log(errorMessage)
-    console.log('i am seek')
-    console.log(initialValue)
-
-        // if (!formValue.userName) {
-        //     setErrorMessage(() => ({
-        //       ...errorMessage,
-        //       lastName: "usename is required",
-        //     }));
-        //     }else if (!/^.[A-Za-z]{2,16}$/g.test(formValue.userName)) {
-        //         setErrorMessage(() => ({
-        //           ...errorMessage,
-        //           userName:
-        //             "UserName must be Alpha numeric and contain character from 3-16",
-        //         }));
-        //       } else {
-        //         setErrorMessage(() => ({ ...errorMessage, userName: "" }));
-        //       }
-
-    // if (!formValue.email) {
-    //   setErrorMessage(() => ({ ...errorMessage, email: "Email is required" }));
-    //   if (
-    //     !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/g.test(
-    //       formValue.email
-    //     )
-    //   ) {
-    //     setErrorMessage(() => ({
-    //       ...errorMessage,
-    //       email: "Email must be a valid address",
-    //     }));
-    //   } else {
-    //     setErrorMessage(() => ({ ...errorMessage, email: "" }));
-    //   }
-    // }
-
-    // if (!formValue.password) {
-    //   setErrorMessage(() => ({
-    //     ...errorMessage,
-    //     password: "Password is required",
-    //   }));
-    //   if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(formValue.password)) {
-    //     setErrorMessage(() => ({
-    //       ...errorMessage,
-    //       password: `'Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character'`,
-    //     }));
-    //   } else {
-    //     setErrorMessage(() => ({ ...errorMessage, password: "" }));
-    //   }
-    // }
-
-    // if (!formValue.confirmPassword) {
-    //   setErrorMessage(() => ({
-    //     ...errorMessage,
-    //     password: "Password is required",
-    //   }));
-    //   if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(formValue.password)) {
-    //     setErrorMessage(() => ({
-    //       ...errorMessage,
-    //       password: `'Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character'`,
-    //     }));
-
-    //     if (formValue.password !== formValue.confirmPassword) {
-    //       setErrorMessage(() => ({
-    //         ...errorMessage,
-    //         password: `Password Missmatch`,
-    //       }));
-    //     }
-    //   } else {
-    //     setErrorMessage(() => ({ ...errorMessage, password: "" }));
-    //   }
-    // }
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
   };
 
-const validate = (values:initialValueType) => {
-    const errors:initialValueType = {firstName:'', lastName:'', email:'', password:'', confirmPassword:'', userName:''};
+  const validate = (values: initialValueType) => {
+    const errors: initialValueType = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      userName: "",
+    };
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    const nameReg = /^.[A-Za-z]{2,16}$/g
-    const passwordReg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*_)(?!.*\W)(?!.* ).{8,16}$/
-        if(!values.firstName){
-            errors.firstName = 'First name is required'
-        }else if(!/^.[A-Za-z]{2,16}$/g.test(values.firstName)){
-            console.log(!nameReg.test(values.firstName))
-            errors.firstName = 'First name must be Alphabetic and must be > 2'
-        }
-        if(!values.lastName){
-            errors.lastName = 'Last name is required'
-        }else if(!nameReg.test(values.lastName)){
-            console.log(!/^.[A-Za-z]{2,16}$/g.test(values.lastName))
-            errors.lastName = 'Last name must be Alphabetic and must be > 2'
-        }
-        if(!values.userName){
-            errors.lastName = 'User name is required'
-        }else if (!/^.[A-Za-z]{2,16}$/g.test(values.userName)){
-            errors.userName = 'user name must be Alphabetic and must be > 2'
-        }
-        if(!values.email){
-            errors.email = 'Email is required'
-        }else if (!emailRegex.test(values.email)){
-            errors.email = 'Email must be a valid address, eg. example@example.com'
-        }
-        if(!values.password){
-            errors.password = 'Password is required'
-        }else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(values.password)){
-            errors.password = 'Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character'
-        }
-        if(!values.confirmPassword){
-            errors.password = 'Confirm Password is required'
-        }else if(!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(values.confirmPassword)){
-            errors.confirmPassword = 'Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character'
-        }else if (values.password !== values.confirmPassword){
-            errors.confirmPassword = 'Password Mismatch'
-        }
+    const nameReg = /^.[A-Za-z]{2,16}$/g;
+    if (!values.firstName) {
+      errors.firstName = "First name is required";
+    } else if (!/^.[A-Za-z]{2,16}$/g.test(values.firstName)) {
+      console.log(!nameReg.test(values.firstName));
+      errors.firstName = "First name must be Alphabetic and must be > 2";
+    }
+    if (!values.lastName) {
+      errors.lastName = "Last name is required";
+    } else if (!nameReg.test(values.lastName)) {
+      console.log(!/^.[A-Za-z]{2,16}$/g.test(values.lastName));
+      errors.lastName = "Last name must be Alphabetic and must be > 2";
+    }
+    if (!values.userName) {
+      errors.lastName = "User name is required";
+    } else if (!/^.[A-Za-z]{2,16}$/g.test(values.userName)) {
+      errors.userName = "user name must be Alphabetic and must be > 2";
+    }
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!emailRegex.test(values.email)) {
+      errors.email = "Email must be a valid address, eg. example@example.com";
+    }
+    if (!values.password) {
+      errors.password = "Password is required";
+    } else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(values.password)) {
+      errors.password =
+        "Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character";
+    }
+    if (!values.confirmPassword) {
+      errors.password = "Confirm Password is required";
+    } else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(values.confirmPassword)) {
+      errors.confirmPassword =
+        "Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character";
+    } else if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = "Password Mismatch";
+    }
     return errors;
   };
 
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (
+    e: React.FormEvent<HTMLElement>
+  ) => {
+    e.preventDefault();
+    setErrorMessage(validate(formValues));
+    createUserWithEmailAndPassword(auth, formValues.email, formValues.password)
+      .then((userCredencial) => {
+        // siginup
+        console.log(userCredencial);
+        //@ts-ignore
+        setUser(userCredencial.user)
+        navigate('/')
+        //@ts-ignore
+        sessionStorage.setItem('Auth token', userCredencial._tokenResponse.refreshToken)
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
 
-  const handleSubmit:React.FormEventHandler<HTMLFormElement> = (e:React.FormEvent<HTMLElement>) => {
-    e.preventDefault()
-    setErrorMessage(validate(formValues))
-    console.log({formValues})
-    
-    if(formValues){
-        
-    }
-  } 
+  };
 
-  useEffect(() => {
-    console.log(errorMessage);
-    if (Object.keys(errorMessage).length === 0) {
-      console.log(formValues);
-    }
-  }, [errorMessage]);
 
-return (
+  return (
     <div className="login-wrapper">
       <div className="login">
         <p>Sign up with:</p>
@@ -245,13 +154,9 @@ return (
                 otherClass={""}
                 setShowPassword={() => {}}
                 onChange={handleChange}
-                name='firstName'
+                name="firstName"
               />
-              <span
-                className={`text-red-400 mt-1 ${
-                  errorMessage.firstName ? "visible" : "invisible"
-                }`}
-              >
+              <span className={`text-red-400 mt-1`}>
                 {errorMessage.firstName}
               </span>
             </div>
@@ -261,9 +166,9 @@ return (
                 otherClass={""}
                 setShowPassword={() => {}}
                 onChange={handleChange}
-                name='lastName'
+                name="lastName"
               />
-              <span className={`text-red-400 mt-1 ${errorMessage.lastName ? 'visible': 'invisible'}`}>
+              <span className={`text-red-400 mt-1`}>
                 {errorMessage.lastName}
               </span>
             </div>
@@ -273,9 +178,9 @@ return (
                 otherClass={""}
                 setShowPassword={() => {}}
                 onChange={handleChange}
-                name='userName'
+                name="userName"
               />
-              <span className={`text-red-400 mt-1 ${errorMessage.userName ? 'visible' :'invisible'}`}>
+              <span className={`text-red-400 mt-1`}>
                 {errorMessage.userName}
               </span>
             </div>
@@ -285,11 +190,9 @@ return (
                 otherClass={""}
                 setShowPassword={() => {}}
                 onChange={handleChange}
-                name='email'
+                name="email"
               />
-              <span className={`text-red-400 mt-1 ${errorMessage.email?'visible':'invisible'}`}>
-                {errorMessage.email}
-              </span>
+              <span className={`text-red-400 mt-1`}>{errorMessage.email}</span>
             </div>
             <div>
               <Input
@@ -299,9 +202,9 @@ return (
                 setShowPassword={setShowPassword}
                 onChange={handleChange}
                 icon={showPassword ? <Eyes /> : <EyeOff />}
-                name='password'
+                name="password"
               />
-              <span className={`text-red-400 mt-1 ${errorMessage.password? 'visible':'invisible'}`}>
+              <span className={`text-red-400 mt-1`}>
                 {errorMessage.password}
               </span>
             </div>
@@ -313,9 +216,9 @@ return (
                 setShowPassword={setReTypePassword}
                 onChange={handleChange}
                 icon={reTypePassword ? <Eyes /> : <EyeOff />}
-                name='confirmPassword'
+                name="confirmPassword"
               />
-              <span className={`text-red-400 mt-1 ${errorMessage.confirmPassword? 'visible': 'invisible'}`}>
+              <span className={`text-red-400 mt-1`}>
                 {errorMessage.confirmPassword}
               </span>
             </div>

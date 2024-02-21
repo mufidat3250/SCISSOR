@@ -1,5 +1,7 @@
 import './style.scss'
 import Qoutation from '../../../Vectors/Qoute'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const users = [
     {
@@ -45,6 +47,17 @@ const urlData = [
 
 
 const Possibbilities = () => {
+    const navigate = useNavigate()
+    useEffect(()=> {
+        let authToken = sessionStorage.getItem('Auth Token')
+        console.log({authToken})
+        if(authToken){
+          navigate('/features')
+        }
+        if(!authToken){
+          navigate('login')
+        }
+    }, [])
     return (
         <div>
             <div className='bg-[#F9FBFD]'>

@@ -1,4 +1,4 @@
-import { Route, Routes, useParams } from 'react-router-dom'
+import { Route, Routes, useNavigate, useParams } from 'react-router-dom'
 import './App.scss'
 import NavBar from './Components/molecules/Navbar'
 import SignUp from './Pages/SignUp'
@@ -11,10 +11,18 @@ import Url from './Components/molecules/Url'
 import Possibbilities from './Components/organisms/Possibilities'
 import Revolution from './Components/organisms/Revolution'
 import Pricing from './Components/organisms/Pricing'
+import { useEffect } from 'react'
 
 function App() {
-  const params = useParams()
-  console.log(params)
+  const navigate = useNavigate()
+  
+  useEffect(()=> {
+    let authToken = sessionStorage.getItem('Auth Token')
+    if(authToken){
+      navigate('/')
+    }
+  },[])
+
   return (
   <div className='overflow-hidden h-screen'>
     <div className='shadow-lg'>
@@ -22,8 +30,8 @@ function App() {
     </div>
     <div className='overflow-auto h-screen'>
       <Routes>
+        <Route index path='/SignUp' element={<SignUp/>}/>
       <Route path='/' element={<Home/>}/>
-        <Route path='/SignUp' element={<SignUp/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/get-in-touch' element={<GetInTouch/>}/>
         <Route path='/faqs' element={<FAQS/>}/>
@@ -33,6 +41,7 @@ function App() {
         <Route path='pricing' element={<Pricing/>}/>
       </Routes>
       <Footer/>
+
     </div>
     </div>
   
