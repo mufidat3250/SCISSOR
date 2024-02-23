@@ -13,6 +13,7 @@ import Revolution from './Components/organisms/Revolution'
 import Pricing from './Components/organisms/Pricing'
 import { useEffect } from 'react'
 import Notfound from './Pages/Notfound'
+import { ToastProvider } from 'react-toast-notifications'
 
 function App() {
   const navigate = useNavigate()
@@ -24,8 +25,11 @@ function App() {
     }
   },[])
 
+  
+
   return (
-  <div className='overflow-hidden h-screen'>
+  <ToastProvider>
+    <div className='overflow-hidden h-screen'>
     <div className='shadow-lg'>
     <NavBar/>
     </div>
@@ -46,7 +50,9 @@ function App() {
       <Footer/>
 
     </div>
+
     </div>
+      </ToastProvider>
   
   )
 }

@@ -1,27 +1,34 @@
 import "./style.scss";
+import { useId } from "react";
 
 const Select = ({
   label,
   options,
   otherClass,
+  name,
+  onChange,
+  value
 }: {
   options: string[];
   label?: string;
   otherClass?: string;
-  onSelect:(e: React.ChangeEvent<HTMLSelectElement>) => void
+  onChange:(e: React.ChangeEvent<HTMLSelectElement>) => void;
+  name:string;
+  value:string
 }) => {
+  const selectedId = useId()
+  console.log({value, name})
   return (
     <div className={`${otherClass} select-wrapper`}>
       <p>{label}</p>
-      <select name="" id="" className="">
-        <option value="">Select an Item </option>
+      <select name={name} id={selectedId} className=""  onChange={onChange} value={value}>
         {options.map((data, index) => {
          return (
-            <>
+            
             <option value={data} key={index}>
             {data}
           </option>
-          </>
+          
           )
         } )}
       </select>

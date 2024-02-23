@@ -5,21 +5,21 @@
             @apply bg-white w-fit mx-auto p-20 px-[2.625rem] pt-[2.625rem] pb-[3.25rem] rounded-[0.75rem] mx-5;
 
             .input-wrapper{
-                @apply md:w-[24.5rem] grid grid-cols-1 md:grid-cols-2 ;
+                @apply md:w-[24.5rem] grid grid-cols-1 md:grid-cols-3 ;
                 row-gap: 1.5rem;
                 column-gap: 0.75rem;
 
 
                 @media (max-width:550px) {
-                    .third-input{
-                        @apply col-span-2;
+                    .btn{
+                        @apply col-span-1;
                     }
                     .sec-input{
-                        @apply col-span-2;
+                        // @apply ;
                     }
                 }
                 .first-input{
-                    @apply col-span-2;
+                    @apply col-span-3;
                 }
                 
             }
