@@ -11,7 +11,7 @@ type inputProp = {
   label?: string;
   readOnly?: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  setShowPassword: Function;
+  setShowPassword:(val:boolean)=> void;
   name: string;
 };
 

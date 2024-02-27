@@ -33,11 +33,7 @@ const GetInTouch = () => {
   const [errorMessages, setErrorMessages] =
     useState<initialValueProp>(initialValue);
   const { addToast } = useToasts();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormInput({ ...formInputs, [name]: value });
-  };
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormInput({ ...formInputs, [name]: value });
   };
@@ -191,28 +187,28 @@ const GetInTouch = () => {
                   "Software developer",
                 ]}
                 label={"Job Title*"}
-                onChange={handleSelect}
+                onChange={handleChange}
                 name={"jobtitle"}
                 value={formInputs.jobtitle}
               />
               <Select
                 options={["10-20", "20-50", "50-100", "100-150"]}
                 label={"Company Size*"}
-                onChange={handleSelect}
+                onChange={handleChange}
                 name={"companysize"}
                 value={formInputs.companysize}
               />
               <Select
                 options={["Personal", "Work", "organization"]}
                 label={"Primary Use Case*"}
-                onChange={handleSelect}
+                onChange={handleChange}
                 name="usecase"
                 value={formInputs.usecase}
               />
               <Select
                 options={["Nigeria", "United State", "United Kindom", "UAE"]}
                 label={"Country*"}
-                onChange={handleSelect}
+                onChange={handleChange}
                 value={formInputs.country}
                 name="country"
               />

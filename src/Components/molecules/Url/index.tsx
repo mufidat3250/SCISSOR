@@ -18,7 +18,7 @@ const Url = () => {
   console.log(access_token);
 
   useEffect(() => {
-    let authToken = sessionStorage.getItem("Auth Token");
+    const authToken = sessionStorage.getItem("Auth Token");
     if (authToken) {
       navigate("/url");
     }
@@ -70,11 +70,10 @@ const config: AxiosRequestConfig = {
             <Input
               placeholder="Past URL here"
               otherClass={"w-full"}
-              setShowPassword={() => {}}
+
               onChange={(e) => setInputValue(e.target.value)}
               name={"url"}
-              value={inputValue}
-            />
+              value={inputValue} setShowPassword={()=> {}}/>
           </div>
           <div className="sec-input  col-span-2">
             <Input placeholder={shortedLink} otherClass={'w-full'} setShowPassword={() => { } } readOnly onChange={()=>{}} name={""}/>
