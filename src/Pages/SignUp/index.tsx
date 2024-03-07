@@ -10,11 +10,12 @@ import EyeOff from "../../Vectors/EyeOff";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import toast from "react-hot-toast";
 
 type initialValueType = {
   firstName: string;
   lastName: string;
-  userName: string;
+  username: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -25,7 +26,7 @@ const SignUp = () => {
     lastName: "",
     email: "",
     password: "",
-    userName: "",
+    username: "",
     confirmPassword: "",
   };
   const [user, setUser] = useState(null);
@@ -37,7 +38,7 @@ const SignUp = () => {
     lastName: "",
     email: "",
     password: "",
-    userName: "",
+    username: "",
     confirmPassword: "",
   });
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const SignUp = () => {
       email: "",
       password: "",
       confirmPassword: "",
-      userName: "",
+      username: "",
     };
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     const nameReg = /^.[A-Za-z]{2,16}$/g;
@@ -68,14 +69,14 @@ const SignUp = () => {
     }
     if (!values.lastName) {
       errors.lastName = "Last name is required";
-    } else if (!nameReg.test(values.lastName)) {
-      console.log(!/^.[A-Za-z]{2,16}$/g.test(values.lastName));
+    } else if (nameReg.test(values.lastName)) {
+      // console.log(!/^.[A-Za-z]{2,16}$/g.test(values.lastName));
       errors.lastName = "Last name must be Alphabetic and must be > 2";
     }
-    if (!values.userName) {
-      errors.lastName = "User name is required";
-    } else if (!/^.[A-Za-z]{2,16}$/g.test(values.userName)) {
-      errors.userName = "user name must be Alphabetic and must be > 2";
+    if (!values.username) {
+      errors.username = "User name is required";
+    } else if (!/^.[A-Za-z]{2,16}$/g.test(values.username)) {
+      errors.username = "user name must be Alphabetic and must be > 2";
     }
     if (!values.email) {
       errors.email = "Email is required";
@@ -90,12 +91,10 @@ const SignUp = () => {
     }
     if (!values.confirmPassword) {
       errors.password = "Confirm Password is required";
-    } else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(values.confirmPassword)) {
-      errors.confirmPassword =
-        "Password must be alphanumeric(@, _ and - are also allowed) and between 6 to 20 character";
     } else if (values.password !== values.confirmPassword) {
       errors.confirmPassword = "Password Mismatch";
     }
+    if(!values) toast.error('All input field are required')
     return errors;
   };
 
@@ -116,11 +115,12 @@ const SignUp = () => {
       })
       .catch((err) => {
         console.log(err.message);
+        toast.error(err.message)
       });
 
   };
 
-console.log(user)
+console.log(formValues, formValues.username)
   return (
     <div className="login-wrapper">
       <div className="login">
@@ -178,10 +178,10 @@ console.log(user)
                 otherClass={""}
                 setShowPassword={() => {}}
                 onChange={handleChange}
-                name="userName"
+                name="username"
               />
               <span className={`text-red-400 mt-1`}>
-                {errorMessage.userName}
+                {errorMessage.username}
               </span>
             </div>
             <div>

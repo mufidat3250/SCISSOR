@@ -14,6 +14,7 @@ import Pricing from './Components/organisms/Pricing'
 import { useEffect } from 'react'
 import Notfound from './Pages/Notfound'
 import { ToastProvider } from 'react-toast-notifications'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const navigate = useNavigate()
@@ -50,7 +51,9 @@ function App() {
       <Footer/>
 
     </div>
-
+    <Toaster toastOptions={{
+      position:'top-right'
+    }}/>
     </div>
       </ToastProvider>
   

@@ -9,6 +9,7 @@ import EyeOff from "../../Vectors/EyeOff";
 import { useNavigate } from "react-router-dom";
 import {  signInWithEmailAndPassword } from "firebase/auth";
 import {auth} from '../../firebase'
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +24,7 @@ const Login = () => {
   const navigate = useNavigate()
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    let userRequest: any = ''
+    const userRequest: any = ''
 
     signInWithEmailAndPassword(auth, formsValue.email, formsValue.password)
     .then((res )=> {
@@ -36,7 +37,8 @@ const Login = () => {
 
     }).catch((err)=> {
       console.log(err)
-      setErrorMessage({...errorMessage, userExist:'User does not exist SignUp instead'})
+      // setErrorMessage({...errorMessage, userExist:'User does not exist SignUp instead'})
+      toast.error('User does not exist SignUp instead')
       setTimeout(() => {
         setErrorMessage({...errorMessage, userExist:''})
       }, 3000);
@@ -59,7 +61,7 @@ const Login = () => {
       setTimeout(() => {
         setErrorMessage({...errorMessage, password:''})
       }, 2000);
-    }else if (!/^.[a-zA-Z0-9@_-]{5,20}$/g.test(formsValue.password)){
+    }else if (/^.[a-zA-Z0-9@_-]{5,20}$/g.test(formsValue.password)){
         setErrorMessage({...errorMessage, password:'password is incorect'})
 
         setTimeout(() => {

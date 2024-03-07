@@ -4,7 +4,6 @@ import Pricing from "../../Components/organisms/Pricing";
 import Url from "../../Components/molecules/Url";
 import FAQS from "../../Components/organisms/FAQS/Index";
 import Revolution from "../../Components/organisms/Revolution";
-import Footer from "../../Components/organisms/Footer";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -31,7 +30,6 @@ useEffect(()=> {
       <Url />
       <FAQS />
       <Revolution />
-      <Footer />
     </>
   );
 };
