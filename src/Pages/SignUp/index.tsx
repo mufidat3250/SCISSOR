@@ -29,7 +29,6 @@ const SignUp = () => {
     username: "",
     confirmPassword: "",
   };
-  const [user, setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
   const [reTypePassword, setReTypePassword] = useState(false);
   const [formValues, setFormValues] = useState<initialValueType>(initialValue);
